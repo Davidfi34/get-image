@@ -1,0 +1,73 @@
+<nav class="navbar">
+    <form class="col-12 col-md-6 mx-auto p-3 search-form">
+        <h1 class=" lead m-3 text-center ">{{ 'imagenes' | uppercase }}</h1>
+        <hr class="my-3">
+        <app-input
+            (onEnter)="buscar( $event )"
+            (onDebounce)="sugerencias( $event )"
+            placeholder="Buscar imagen..."
+        ></app-input>
+
+        <div class="dropdown my-3">
+            <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categorias
+            </button>
+        
+                <ul class="dropdown-menu" >
+                    <li *ngFor="let categoria of categorias let i = index" >
+                        <a class="dropdown-item" (click)="buscar( categoria.in )">{{ categoria.es }}</a>
+                    </li>
+                </ul>
+        </div>
+       
+    </form>
+</nav>
+
+
+
+<div *ngIf="response" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>resulatado no encotrado!</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+
+
+
+
+<div *ngIf="imagenes" class="container py-5">
+    <div class="row">
+
+ 
+        
+        <div *ngFor="let imagen of imagenes.photos" class="col-12 col-sm-6 col-lg-4 col-xl-3 p-1 img" > 
+        <div class="contenido">
+
+            <img [src]=imagen.src.landscape  class="img-fluid" alt="...">
+            <a  class="btn btn-light shadow copiUrl" (click)="copyUrl(imagen.src.landscape)">
+                <i class="fa fa-link"></i>
+            </a>
+  
+        </div>
+
+         <!--<pre>{{imagen.src.landscape}}</pre>-->
+    </div>
+</div>
+
+<div *ngIf="copying" class="alert alert-success col-lg-4 col-md-6 p-3 m-3 position-fixed bottom-0 end-0 shadow-lg p-3 rounded"  >
+    url copiado!
+</div>
+
+
+<div class="container py-3">
+
+            <div *ngIf="!loading && pagination <= imagenes.per_page" class="text-center">
+                <input  class=" text-center btn btn-primary" type="button" (click)="count()" value="ver mas">
+            </div>
+            <div class="text-center">
+                <div *ngIf="loading" class="col spinner-border text-primary" role="status"></div>
+            </div>
+</div>
+
+
+
+

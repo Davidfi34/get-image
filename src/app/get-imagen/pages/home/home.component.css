@@ -1,0 +1,19 @@
+.contenido{
+    position: relative;
+}
+.copiUrl{
+    position: absolute;
+    top:0;
+    right: 0;
+    margin: 3px;
+}
+
+.contenido:hover{
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);   
+}
+
+.dropdown-item{
+    cursor: pointer;
+}
+
+

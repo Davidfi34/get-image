@@ -1,0 +1,24 @@
+
+<form  (ngSubmit)="buscar()" autocomplete="off">
+
+
+    <div class="row">
+        
+        <div class="col-12 col-md-11 mb-1">
+            
+            <input type="text"
+            name="termino"
+            class="form-control"
+            [(ngModel)]="termino"
+            (input)="teclaPresionada()"
+            [placeholder]="placeholder"/>
+        </div>
+        <div class="col col-1">
+            
+            <button type="button" class=" btn btn-outline-dark" (click)="buscar()">  <i class="fa fa-search"></i></button>
+        </div>
+    </div>
+    
+    
+</form>
+
