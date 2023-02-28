@@ -19,16 +19,18 @@
                     </li>
                 </ul>
         </div>
+
+        <div *ngIf="response" class="alert alert-warning alert-dismissible fade show " role="alert">
+            <strong> sin resultados!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
        
     </form>
 </nav>
 
 
 
-<div *ngIf="response" class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>resulatado no encotrado!</strong>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
+
 
 
 
